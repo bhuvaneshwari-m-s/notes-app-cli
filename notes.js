@@ -63,23 +63,24 @@ const readNotes = (title) =>{
 }
 
 const saveNotes = (notes) =>
-    {
-        const dataJson = JSON.stringify(notes)
-        fs.writeFileSync('notes.json', dataJson)
-    }
+{
+    const dataJson = JSON.stringify(notes)
+    fs.writeFileSync('notes.json', dataJson)
+}
     
-    const loadNotes = () =>
+const loadNotes = () =>
+{
+    try
     {
-        try
-        {
-            const dataBuffer = fs.readFileSync('notes.json')
-            const dataJson = dataBuffer.toString()
-            return JSON.parse(dataJson)
-        }catch(e){
-            return []
-        }
-    
+        const dataBuffer = fs.readFileSync('notes.json')
+        const dataJson = dataBuffer.toString()
+        return JSON.parse(dataJson)
     }
+    catch(e)
+    {
+        return []
+    }
+}
 
 module.exports = ({
     addNotes : addNotes,

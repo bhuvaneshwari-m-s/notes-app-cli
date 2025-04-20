@@ -34,7 +34,7 @@ const notes = require('./notes.js')
 
 yargs.version('1.1.0')
 //add, remove,list, read
-//creating add command
+//creating add command // call : node app.js add --title="t" --body="b"
 //similarly remove, list and read
 yargs.command({
     command : 'add',
